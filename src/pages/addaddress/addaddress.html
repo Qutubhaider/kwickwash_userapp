@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>My Address</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <!--<p padding-left padding-right class="heading">Click on icons to add Address</p>-->
+    <ion-toolbar no-border-top class="select-tab">
+        <ion-segment [(ngModel)]="address">
+            <ion-segment-button value="home">
+                <span class="home-img"></span> Home
+            </ion-segment-button>
+           <!-- <ion-segment-button value="office">
+                <span class="office-img"></span> Office
+            </ion-segment-button>-->
+           <!-- <ion-segment-button value="other">
+                <span class="other-img"></span> Other
+            </ion-segment-button>-->
+        </ion-segment>
+    </ion-toolbar>
+
+    <div class="address-list" *ngFor="let userDt of dataUser">
+        <ion-list no-lines class="home-address">
+            <div class="input-address" padding>
+                <p class="heading" no-margin padding-bottom>Home Address</p>
+                <ion-list no-line>
+                    <ion-item>
+                        <ion-textarea value="{{userDt.address}}" placeholder="Building/Society Name & Number"> </ion-textarea>
+                    </ion-item>
+                   <!-- <ion-item>
+                        <ion-input type="text" placeholder="Street Address, Landmark, etc."></ion-input>
+                    </ion-item>-->
+                    <ion-row no-padding>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" value="{{userDt.pincode}}" placeholder="PinCode"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" value="{{userDt.city}}" placeholder="City"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+                <button ion-button full>Save Address</button>
+            </div>
+        </ion-list>
+
+      
+    </div>
+</ion-content>

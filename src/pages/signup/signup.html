@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Register now</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bgimg">
+    <form #form="ngForm" class="center">
+        <ion-list no-lines class="form">
+        <ion-item>
+            <ion-icon name="md-person" item-start></ion-icon>
+            <ion-label floating>Enter Full Name</ion-label>
+            <ion-input type="text" [(ngModel)]="postData.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-mail" item-start></ion-icon>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input type="email" [(ngModel)]="postData.emailId" name="emailId"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-phone-portrait" item-start></ion-icon>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="number" [(ngModel)]="postData.mobile" name="mobile"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-lock" item-start></ion-icon>
+            <ion-label floating>Create Password</ion-label>
+            <ion-input type="password" [(ngModel)]="postData.password" name="password"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-navigate" item-start></ion-icon>
+            <ion-label floating>Select City</ion-label>
+            <ion-select  [(ngModel)]="postData.city" name="city">
+                <ion-option (ionSelect)="callArea($event, city)" *ngFor="let city of dataCity" value="{{city.cityId}}">{{city.cityName}}</ion-option>                
+            </ion-select>              
+        </ion-item>   
+        <ion-item>
+            <ion-icon name="md-locate" item-start></ion-icon>
+            <ion-label floating>Select Area</ion-label>
+            <ion-select [(ngModel)]="postData.areaId" name="area">
+                <ion-option (ionSelect)="callShop($event, area)" *ngFor="let area of dataArea" value="{{area.areaId}}">{{area.areaName }}</ion-option>                
+            </ion-select>              
+        </ion-item>    
+    </ion-list>
+    <button ion-button block (click)="otp()">Register Now</button>
+</form> 
+</ion-content>

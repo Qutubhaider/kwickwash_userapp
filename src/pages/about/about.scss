@@ -1,0 +1,138 @@
+page-about {
+    
+    ion-scroll.scroll-x .scroll-content {
+        overflow-x: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    ion-slides {
+        height: auto;
+        .slide-image {
+            display: block;
+        }
+    }
+    .swiper-pagination {
+        text-align: left;
+        padding-left: 16px;
+    }
+    .swiper-container {
+        height: auto;
+        .banner-text {
+            position: absolute;
+            top: 0;
+            text-align: left;
+            padding: 5px;
+            h2 {
+                font-size: 1.5rem;
+                margin-left: 16px;
+                margin-top: 30px;
+            }
+        }
+    }
+    .scroll-item {
+        display: inline-block;
+        width: 140px;
+        text-align: center;
+        .item-box {
+            background: $white;
+            margin: 0px 4px;
+            padding: 10px;
+            border-radius: 5px;
+            h5 {
+                font-size: 1.5rem;
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+            p {
+                font-size: 1rem;
+                color: $text-light;
+                margin: 0;
+            }
+        }
+    }
+    .heading {
+        font-weight: 600;
+        display: flex;
+        color: $text-muted;
+        padding-top: 5px;
+        span {
+            font-weight: 600;
+            color: $text-theme;
+            margin-left: auto;
+        }
+    }
+    .order-list {
+        .item {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            ion-avatar {
+                width: 55px;
+                height: 55px;
+                img {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                }
+            }
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: $text-dark;
+            }
+            p {
+                font-size: 1.25rem;
+                font-weight: 400;
+                color: $text-theme;
+            }
+            .note {
+                font-size: 1.2rem;
+                color: $text-dark;
+                text-align: right;
+                font-weight: 500;
+                small {
+                    display: block;
+                    color: $text-light;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+    .logo {
+        width: 260px;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $text-dark;
+        line-height: 1.5;
+    }
+    .services {
+        border-top: 5px solid $bg-light;
+        p {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+    }
+    .col {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $text-dark;
+        line-height: 1.5;
+        text-align: center;
+        padding: 0;
+        img {
+            display: block;
+            margin-bottom: 0px;
+            max-width: 100px;
+            width: 100%;
+        }
+    }
+}

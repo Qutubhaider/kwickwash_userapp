@@ -1,0 +1,42 @@
+<ion-content padding>
+  <div style="margin-top:60px; width: 100%;">
+    <ion-icon ios="ios-navigate-outline" md="md-navigate" item-start style="font-size: 70px; color: darkred;"></ion-icon>
+    <h1 style="font-size:50px;">Hello, nice to meet you!</h1>
+    <p>
+      Set your location to start find service around you
+    </p>
+  </div>
+  <div style="margin-top:20px; width: 100%;">
+    <div style="width: 100%; float: left; margin-right:2px;">
+      <button ion-button block (click)="goLocation()">
+        <ion-icon name="md-locate" item-start></ion-icon>&nbsp; &nbsp;Use current location
+      </button>
+    </div>   
+    <div style="clear: both;"></div>
+    <p>
+      We Only access your location while you are using this incredible app
+    </p>
+    <br>
+    <p>
+      <a>or set your location manually</a>
+    </p>   
+      <ion-list no-lines class="form" >
+          <ion-item>
+              <ion-icon name="md-navigate" item-start></ion-icon>
+              <ion-label floating>Select City</ion-label>
+              <ion-select  name="cityId">
+                  <ion-option (ionSelect)="callArea($event, city)" *ngFor="let city of dataCity" value="{{city.cityId}}">{{city.cityName}}</ion-option>                
+              </ion-select>              
+          </ion-item>   
+          <ion-item>
+              <ion-icon name="md-locate" item-start></ion-icon>
+              <ion-label floating>Select Area</ion-label>
+              <ion-select  name="areaId">
+                  <ion-option *ngFor="let area of dataArea" value="{{area.areaId}}">{{area.areaName }}</ion-option>                
+              </ion-select>              
+          </ion-item>    
+    
+  </ion-list>
+    <div style="width: 100%; float: left; margin-right:2px;"><button ion-button block (click)="goDashboard()">Continue</button></div>   
+  </div>
+</ion-content>

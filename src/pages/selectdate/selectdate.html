@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Select Date & Time</ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top class="select-tab">
+        <ion-segment [(ngModel)]="dnt">
+            <ion-segment-button value="pick">
+                <span class="pick"></span> Pick up
+            </ion-segment-button>
+            <ion-segment-button value="delivery">
+                <span class="delivery"></span> Delivery
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div [ngSwitch]="dnt">
+        <ion-list *ngSwitchCase="'pick'" no-lines>
+            <div class="select-day">
+                <p class="heading">Select Pick up Date</p>
+                <ion-scroll scrollX style="height:38px;white-space: nowrap;">
+                    <div class="scroll-item">
+                        <div class="date-box active">Today, 08 September</div>
+                    </div>
+                    <div class="scroll-item">
+                        <div class="date-box">Tomorrow, 09 September</div>
+                    </div>
+                    <div class="scroll-item">
+                        <div class="date-box">10 September</div>
+                    </div>
+                </ion-scroll>
+            </div>
+            <div class="select-time">
+                <p class="heading">Select Pick up Time</p>
+                <ion-row no-padding>
+                    <ion-col col-6 no-padding>
+                        <h6>9:00 am to 10:00 am</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>10:00 am to 11:00 am</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6 class="active">11:00 am to 12:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>12:00 pm to 1:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>1:00 pm to 2:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>2:00 pm to 3:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>3:00 pm to 4:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>4:00 pm to 5:00 pm</h6>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'delivery'" no-lines>
+            <div class="select-day">
+                <p class="heading">Select Delivery Date</p>
+                <ion-scroll scrollX style="height:38px;white-space: nowrap;">
+                    <div class="scroll-item">
+                        <div class="date-box active">Tomorrow, 09 September</div>
+                    </div>
+                    <div class="scroll-item">
+                        <div class="date-box"> 10 September</div>
+                    </div>
+                    <div class="scroll-item">
+                        <div class="date-box">11 September</div>
+                    </div>
+                </ion-scroll>
+            </div>
+            <div class="select-time">
+                <p class="heading">Select Delivery Time</p>
+                <ion-row no-padding>
+                    <ion-col col-6 no-padding>
+                        <h6>9:00 am to 10:00 am</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>10:00 am to 11:00 am</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6 class="active">11:00 am to 12:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>12:00 pm to 1:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>1:00 pm to 2:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>2:00 pm to 3:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>3:00 pm to 4:00 pm</h6>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                        <h6>4:00 pm to 5:00 pm</h6>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-list>
+    </div>
+
+    <div class="fixed-bootom" (click)="payment()">
+        <ion-row>
+            <ion-col class="next">Next
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

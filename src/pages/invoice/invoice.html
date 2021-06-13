@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>&nbsp;</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light" *ngFor="let olist of orderList">
+  <div class="order-head all-orders">
+      <p class="header">Invoice No. {{olist.invoiceNo}}</p>    
+        <ion-row *ngFor="let userDt of dataUser">        
+          <p class="order-header">Customer Detail</p>
+          <ion-col col-12>
+            Name :<strong> {{userDt.name}}</strong>
+          </ion-col>
+          <ion-col col-12>
+            Mobile :<strong> {{userDt.mobile}}</strong>
+          </ion-col>
+        </ion-row>
+      
+
+      <ion-row>     
+        <p class="order-header">Order Detail</p>
+          <ion-col col-12>
+            Order Type :<strong> {{olist.orderId}}</strong>
+          </ion-col>
+          <ion-col col-12>
+            Order Date :<strong>{{olist.orderDate}}</strong>
+          </ion-col>      
+          <ion-col col-12>
+              Order Type :<strong> {{olist.orderType}}</strong>
+          </ion-col>
+          <ion-col col-12>
+              Order Status :<strong> {{olist.deliveryStatus}}</strong>
+          </ion-col>
+          <ion-col col-12>
+              Pickup Slip :<strong> {{olist.pickupSlip}}</strong>
+          </ion-col>
+          <ion-col col-6>
+              Pickup Request :<strong> {{olist.pickupRequest}}</strong>
+          </ion-col>
+          <ion-col col-12>
+              Drop Request :<strong> {{olist.dropRequest}}</strong>
+          </ion-col>            
+          <ion-col col-12>
+              Payment Status :<strong> {{olist.status}}</strong>
+          </ion-col>
+          <ion-col col-12>
+              Delivery Date :<strong>{{olist.deliveryDate}}</strong>
+          </ion-col>  
+      </ion-row>
+  </div>   
+  <div class="order-address order-head" *ngFor="let addList of dataUser">
+      <ion-row>        
+          <ion-col col-12>Delivery Address <strong>{{addList.address}}, {{addList.city}} ({{addList.pincode}}) - {{addList.state}}</strong></ion-col>
+      </ion-row>
+  </div>
+  <div class="all-orders order-head">
+      <p class="order-header">Item List</p>
+      <ion-label  *ngFor="let item of orderItemList">
+          <span class="items">{{item.orderQty}}&nbsp;</span>
+          <span class="items">{{item.unit}}</span>
+          <span class="cross">x</span>            
+          <span class="text" title="{{item.productName}}">{{item.productName}}</span>  
+          <span class="service">{{item.serviceName}}</span>
+          <span class="amount">₹{{item.price}}</span>
+    </ion-label>
+
+      <div class="price-section">
+          <ion-label>Sub Total<span>₹&nbsp;{{olist.ttlAmount}}</span></ion-label>
+          <!--<ion-label>Tax<span>$5</span></ion-label>-->
+          <ion-label class="total-amount">Payble Amount <span>₹&nbsp;{{olist.ttlAmount}}</span></ion-label>
+      </div>
+  </div>
+  <button ion-button full (click)="DownloadInvoie()" no-margin style="height: 50px">Download Invoice</button>
+  
+</ion-content>

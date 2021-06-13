@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Account</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="order-head" (click)="profile()">
+        <ion-row *ngFor="let userDt of dataUser">           
+            <ion-col>
+                <p>{{userDt.name}}<span>View profile</span></p>
+            </ion-col>
+        </ion-row>
+    </div>
+    <ion-list no-lines>
+        <ion-item (click)="myorders()">
+            <ion-icon name="md-list-box" item-start></ion-icon>
+            My Orders
+        </ion-item>
+        <ion-item (click)="myrequest()">
+            <ion-icon name="md-list-box" item-start></ion-icon>
+            My Orders Request
+        </ion-item>
+        <ion-item (click)="addaddress()">
+            <ion-icon name="md-pin" item-start></ion-icon>
+            My address
+        </ion-item>
+        <ion-item (click)="about()">
+            <ion-icon name="md-clipboard" item-start></ion-icon>
+            About us
+        </ion-item>
+        <ion-item (click)="contact()">
+            <ion-icon name="md-mail" item-start></ion-icon>
+            Contact us
+        </ion-item>
+        <ion-item (click)="tnc()">
+            <ion-icon name="md-document" item-start></ion-icon>
+            Terms & Conditions
+        </ion-item>
+        <ion-item (click)="toc()">
+            <ion-icon name="md-document" item-start></ion-icon>
+            Terms and Conditions of Order
+        </ion-item>
+        <ion-item (click)="repy()">
+            <ion-icon name="md-document" item-start></ion-icon>
+            Refund Policy
+        </ion-item>
+        <ion-item (click)="pry()">
+            <ion-icon name="md-document" item-start></ion-icon>
+            Privacy Policy
+        </ion-item>        
+        <ion-item (click)="signout()">
+            <ion-icon name="md-open" item-start></ion-icon>
+            Logout
+        </ion-item>
+    </ion-list>
+    <p text-center class="about">KwickWash Version 1.0.1</p>
+</ion-content>

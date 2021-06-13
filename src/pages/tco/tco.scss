@@ -1,0 +1,56 @@
+page-tco {
+    .heading {
+        color: $text-light;
+        font-size: 1.5rem;
+    }
+    blockquote {
+        padding: 15px 20px;
+        background-color: #f6f6f6;
+        margin: 0 0 20px;
+        border-left: 5px solid #2e96db;
+        font-style: italic;
+    }
+    ul.bull {
+        margin: 0 0 20px;
+        list-style: none;
+        padding: 0;
+    }
+    ul.bull li {
+        position: relative;
+        padding: 0 0 0 26px;
+        margin: 0 0 14px;
+        line-height: 18px;
+    }
+    ul.bull li:before {
+        content: "\f105";
+        font-family: "Ionicons";
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+        color: #0a80be;
+    }    
+    .logo {
+        width: 260px;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $text-dark;
+        line-height: 1.5;
+    }
+    .conditions {
+        border-top: 5px solid $bg-light;
+        p {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+}

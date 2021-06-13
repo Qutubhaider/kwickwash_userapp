@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Offers</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-list no-lines>
+       <ion-item *ngFor="let oflist of offerList">
+            <h2>{{oflist.serviceName}}</h2>
+            <p><span>{{oflist.productName}}</span><span class="read">Valid Upto {{oflist.validNoOfTime}} Times</span></p>
+            <div class="copy"><span>{{oflist.couponCode}}</span>Tap to copy</div>
+        </ion-item>
+    </ion-list>
+</ion-content>

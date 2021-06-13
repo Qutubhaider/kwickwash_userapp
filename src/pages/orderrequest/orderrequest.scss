@@ -1,0 +1,41 @@
+page-orderrequest {
+    .order-list {
+        .item {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            ion-avatar {
+                width: 55px;
+                height: 55px;
+                img {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                }
+            }
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: $text-dark;
+            }
+            p {
+                font-size: 1.25rem;
+                font-weight: 400;
+                color: $text-theme;
+            }
+            .note {
+                font-size: 1.2rem;
+                color: $text-dark;
+                text-align: right;
+                font-weight: 500;
+                small {
+                    display: block;
+                    color: $text-light;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+}

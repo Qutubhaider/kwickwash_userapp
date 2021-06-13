@@ -1,0 +1,41 @@
+
+
+<ion-content class="bg-light">
+    <ion-slides pager>
+        <ion-slide *ngFor="let slide of slides">
+            <img src="{{slide.imgurl}}" class="slide-image" />
+            <div class="banner-text">
+                <h3 class="slide-title h2class"></h3>
+            </div>
+        </ion-slide>
+    </ion-slides>
+    <p padding-left padding-right class="heading">Our Services</p>
+
+    <ion-scroll scrollX style="height:165px;white-space: nowrap;">
+        <div class="scroll-item" *ngFor="let service of dataService" (click)="selectproduct(service.sid,service.serviceName)">
+            <div class="item-box">
+                <img src="http://admin.kwickwash.in/{{service.serviceImg}}" style="width: 90px; border-radius: 7%;">
+                <h5 style="font-size: 11px; color: #037DC5;" [innerHTML]="service.serviceName"></h5>               
+                <p style="color: white;">Starting ₹ {{service.startAt}} {{service.unit}}</p>
+                <p style="color: white;">Duration-{{service.duration}} hr</p>
+            </div>
+        </div>
+    </ion-scroll>
+    
+   <!--<button ion-button block (click)="bookPage()" style="width: 70%;margin-left: 15%;">Book Your Order</button>-->
+   
+    <p padding-left padding-right class="heading">Active Order</p>
+    <div padding-left padding-right class="order-list">
+        <ion-list no-lines>
+            <ion-item *ngFor="let olist of orderList" (click)="GetOrderSummary(olist.orderId)">              
+                <h2 >Order No: {{olist.orderId}}</h2>
+                <p>Order Status : {{olist.deliveryStatus}}</p>
+                <ion-note item-end>₹{{olist.ttlPayableAmount}}
+                    <small>Order Date : {{olist.orderDate}}</small>
+                    <small>Delivery Date : {{olist.deliveryDate}}</small>
+                </ion-note>
+            </ion-item>
+           
+        </ion-list>
+    </div>
+</ion-content>

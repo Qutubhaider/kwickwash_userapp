@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Order in 15 sec</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngFor="let usermob of userdetails">
+    <form #form="ngForm" class="center">
+        <ion-list no-lines class="form" >
+            <ion-item>
+                <ion-icon name="md-navigate" item-start></ion-icon>
+                <ion-label floating>Select City</ion-label>
+                <ion-select  name="cityId" [(ngModel)]="postData.cityId">
+                    <ion-option (ionSelect)="callArea($event, city)" *ngFor="let city of dataCity" value="{{city.cityId}}">{{city.cityName}}</ion-option>                
+                </ion-select>              
+            </ion-item>   
+            <ion-item>
+                <ion-icon name="md-locate" item-start></ion-icon>
+                <ion-label floating>Select Area</ion-label>
+                <ion-select  name="areaId" [(ngModel)]="postData.areaId">
+                    <ion-option *ngFor="let area of dataArea" value="{{area.areaId}}">{{area.areaName }}</ion-option>                
+                </ion-select>              
+            </ion-item>    
+        <ion-item>
+            <ion-icon name="md-compass" item-start></ion-icon>            
+            <ion-label floating>Enter Location</ion-label>
+            <ion-input type="text" [(ngModel)]="postData.Location" name="Location"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-apps" item-start></ion-icon>
+            <ion-label floating>Service</ion-label>    
+            <ion-input type="text" value="{{usermob.serviceName}}" [readonly]="isReadonly"></ion-input>
+           <!-- <ion-select  name="srId" [(ngModel)]="postData.srId">
+                <ion-option *ngFor="let service of dataService" value="{{service.sid}}">{{service.serviceName}}</ion-option>                
+            </ion-select>-->              
+        </ion-item> 
+       
+        <ion-item>
+            <ion-icon name="md-person" item-start></ion-icon>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" value="{{usermob.customerName}}" [readonly]="isReadonly"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="md-phone-portrait" item-start></ion-icon>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input type="number" value="{{usermob.mobile}}" [readonly]="isReadonly"></ion-input>           
+        </ion-item>    
+    </ion-list>
+
+    <button ion-button block (click)="bookNow()">Book Now</button>
+</form> 
+</ion-content>

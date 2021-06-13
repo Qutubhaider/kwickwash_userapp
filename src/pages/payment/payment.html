@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Payment</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-light">
+    <p padding-left padding-right class="heading">Select Payment Method</p>
+    <ion-toolbar no-border-top class="select-tab">
+        <ion-segment [(ngModel)]="payment">
+            <ion-segment-button value="debit">
+                <span class="debit"></span> Debit Card
+            </ion-segment-button>
+            <ion-segment-button value="credit">
+                <span class="credit"></span> Credit Card
+            </ion-segment-button>
+            <ion-segment-button value="cod">
+                <span class="cod"></span> Cash on Delivery
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
+    <div [ngSwitch]="payment" class="address-list">
+        <ion-list *ngSwitchCase="'debit'" no-lines class="home-address">
+            <div class="input-address" padding>
+                <p class="heading" no-margin padding-bottom>Enter Card Details</p>
+                <ion-list no-line>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Card Number"></ion-input>
+                    </ion-item>
+                    <ion-row no-padding>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Month"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Year"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-item>
+                        <ion-input type="text" placeholder="CVV"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="check-item">
+                        <ion-label>Save Card info for quick payment in future</ion-label>
+                        <ion-checkbox item-start></ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'credit'" no-lines class="office-address">
+            <div class="input-address" padding>
+                <p class="heading" no-margin padding-bottom>Enter Card Details</p>
+                <ion-list no-line>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Card Number"></ion-input>
+                    </ion-item>
+                    <ion-row no-padding>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Month"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Year"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-item>
+                        <ion-input type="text" placeholder="CVV"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="check-item">
+                        <ion-label>Save Card info for quick payment in future</ion-label>
+                        <ion-checkbox item-start></ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'cod'" no-lines class="other-address">
+            <div class="input-address" padding>
+                <p class="heading" no-margin padding-bottom>Enter Address Details</p>
+                <ion-list no-line>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Building/Society Name & Number"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Street Address, Landmark, etc."></ion-input>
+                    </ion-item>
+                    <ion-row no-padding>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Zip Code"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col no-padding>
+                            <ion-item>
+                                <ion-input type="text" placeholder="City"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-item class="check-item">
+                        <ion-label>Deliver at other loction</ion-label>
+                        <ion-checkbox item-start></ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-list>
+    </div>
+
+    <div class="fixed-bootom" (click)="orderslip()">
+        <ion-row>
+            <ion-col class="cost" col-8>Amount Payable $75.00</ion-col>
+            <ion-col class="next">Next
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

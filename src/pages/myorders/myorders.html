@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Orders</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div padding-left padding-right class="order-list" >
+    <ion-list no-lines>
+        <ion-item *ngFor="let olist of orderList" (click)="GetOrderSummary(olist.orderId)">              
+            <h2>Order No: {{olist.orderId}}</h2>
+            <p>Order Status : {{olist.deliveryStatus}}</p>
+            <ion-note item-end>₹{{olist.ttlPayableAmount}}
+                <small>Order Date : {{olist.orderDate}}</small>
+                <small>Delivery Date : {{olist.deliveryDate}}</small>
+            </ion-note>
+        </ion-item>       
+    </ion-list>
+    </div>  
+</ion-content>

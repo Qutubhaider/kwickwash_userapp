@@ -1,0 +1,31 @@
+<ion-header >
+    <ion-navbar >        
+        <ion-title *ngFor="let service of serviceName">{{service.name}}</ion-title>
+    </ion-navbar>
+    <ion-searchbar [(ngModel)]="searchTerm"  (ionInput)="getItems($event)" style="background:transparent !important;" ></ion-searchbar>
+    
+</ion-header>
+
+<ion-content class="bg-light">
+    <div style="margin-top: 8px; width: 96%; margin-left: 8px; overflow: auto; height: 461px;" class="cloth-list">
+       
+        <ion-list no-lines *ngFor="let products of dataProduct" style="margin: -1px 0 5px;">
+            <ion-item>           
+                <p>
+                   {{products.productName}}               
+                </p>
+                <ion-note item-end class="price">{{products.unit}}</ion-note>  
+               <ion-note item-end class="price">₹ {{products.pickupDropPrice}}</ion-note>
+                               
+            </ion-item>
+        </ion-list>
+    </div>
+    <div class="fixed-bootom" (click)="orderconfirmed()">
+        <ion-row>           
+            <ion-col class="next">BookNow
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>
+

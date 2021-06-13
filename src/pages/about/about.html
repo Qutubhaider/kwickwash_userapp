@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Company Overview
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div padding>
+        <div class="logo">
+            <img src="assets/imgs/logo2.png">
+        </div>
+       <p style="text-align: justify;">
+        We are the company that ensures that the most important items for you to clean your clothes are not a bucket of water and shop and brush etc but your good old mobile phone.
+       </p>
+       <p style="text-align: justify;">
+        We are a community driven company, focused to provide best in class service when it come to clean and spotless accessories.
+       </p>
+       <p style="text-align: justify;">
+        We started our journey in August 2018 with the aim to make sure our clients no longercarry the burden of cleaning their clothes and shoes. We all know how tedious and time consuming it is to do the “laundry”, therefore we at Kwickwash decided to take care of your laundry so that you can use your time more productively or just relax.
+       </p>
+       <p style="text-align: justify;">
+        In the span of two years we have established ourselves as the go-to destination for all the laundry services in some parts of Pune and Mumbai with the aim to deliver the aroma of freshly washed and ironed clothes.
+       </p>
+       <p style="text-align: justify;">
+        We provide state-of-the-art laundry services to our clients by taking utmost precautions to make sure that every stain is dealt with without harming the fabric. Our Kwickteam will ensure that all your belongings are taken care of, from your favourite sneakers to your BridalLehenga.
+       </p>
+       <p style="text-align: justify;">We use cutting-edge techniques to make sure your clothes are not mixed up. Internationally certified detergents are used to bring your clothes back to life. These detergents are eco-friendly and are gentle on the fabric just to ensure the clothes are good as new.</p>
+       <p style="text-align: justify;">
+        We are committed to a super-fast delivery. There may be times when you require urgent services, maybe you need to go for an interview or a date whatever it is just let us know and we will ensure that your requirement is dealt with. Our Express Service will make the delivery Lightning-fast. Guaranteed!!!
+       </p>
+    </div>
+    <div class="services" padding>
+        <p>Our Team</p>
+        <ion-scroll scrollX style="height:165px;white-space: nowrap;">
+            <div class="scroll-item" *ngFor="let ourteams of ourTeam">
+                <div class="item-box">
+                    <img [src]="ourteams.image" style="width: 90px; height: 90px; border-radius: 7%;">
+                    <h5 style="font-size:11px !important;" [innerHTML]="ourteams.name"></h5>    
+                    <p style="font-size:8px !important;" [innerHTML]="ourteams.desgination"></p>                
+                </div>
+            </div>
+        </ion-scroll>       
+    </div>
+
+</ion-content>

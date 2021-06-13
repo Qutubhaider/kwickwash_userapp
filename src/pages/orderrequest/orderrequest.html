@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Order Request</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div padding-left padding-right class="order-list">
+    <ion-list no-lines>
+        <ion-item *ngFor="let olist of orderList" >              
+            <h2>Order Req#: {{olist.koId}}</h2>
+            <p>Service : {{olist.serviceName}}</p>
+            <ion-note item-end> {{olist.ttlPayableAmount}}
+                <small>Request Date : {{olist.orderDate}}</small>               
+            </ion-note>
+        </ion-item>       
+    </ion-list>
+    </div>  
+</ion-content>

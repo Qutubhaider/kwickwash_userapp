@@ -1,0 +1,16 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="../assets/imgs/icon.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-content padding class="bgimg">
+  <div style="margin-top:500px; width: 100%;">
+    <div class="col-md-5" style="width: 48%; float: left; margin-right:2px;"><button ion-button block (click)="goLogin()">Sign in</button></div>
+    <div class="col-md-5" style="width: 48%; float: left;"><button style=" background-color: #6CBA2A;" ion-button block (click)="goReg()" style="background: TRANSPARENT; color: #6CBA2A;
+      border: 1PX SOLID #6CBA2A;">Register Now</button></div> 
+    <div style="clear: both;"></div>
+  </div>
+</ion-content>
