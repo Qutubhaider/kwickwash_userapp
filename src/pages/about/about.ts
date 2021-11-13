@@ -41,11 +41,6 @@ export class AboutPage {
       image: "assets/imgs/niteen.jpeg",
       name: "Niteen Phansalkar",
       desgination: "Mentor",
-    },
-    {
-      image: "assets/imgs/Monochrome-Lab.png",
-      name: "Monochrome Lab",
-      desgination: "Tech Team",
     }
   ];
 }

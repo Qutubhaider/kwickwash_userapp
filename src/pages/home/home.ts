@@ -51,6 +51,8 @@ export class HomePage implements OnInit {
         sessionStorage.setItem("emailId",res1[0]["emailId"]);  
         sessionStorage.setItem("mobile",res1[0]["mobile"]);  
         sessionStorage.setItem("address",res1[0]["address"]);  
+        sessionStorage.setItem("city",res1[0]["city"]);
+        sessionStorage.setItem("piccode",res1[0]["piccode"]);
         this.getDataService();
         this.getOrderList(sessionStorage.getItem("userId"));
       });

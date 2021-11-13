@@ -15,7 +15,7 @@ export class WelcomePage {
   }
 
   ionViewDidLoad() {
-    setTimeout(() => this.splash = false, 7000);
+    setTimeout(() => this.splash = false, 3000);
   }
 
   goLogin(){

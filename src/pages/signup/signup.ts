@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { AlertController, LoadingController, NavController } from 'ionic-angular';
 import { ServiceProvider } from '../../providers/service/service';
-import { SigninPage } from '../signin/signin';
+import { HellopagePage } from '../hellopage/hellopage';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -27,6 +27,11 @@ export class SignupPage implements OnInit{
     areaId:''
   }
 
+  public loginData={
+    username:this.postData.mobile,
+    password:this.postData.password,
+    role:'custom'
+  }
 
     constructor(
     public navCtrl: NavController,
@@ -47,6 +52,8 @@ export class SignupPage implements OnInit{
       let mobile=this.postData.mobile.trim();
       let password=this.postData.password.trim();
       let areaId=this.postData.areaId.trim();
+      this.loginData.username=this.postData.mobile;
+      this.loginData.password=this.postData.password;
       return(this.postData.name && this.postData.emailId && this.postData.mobile && this.postData.password
          && name.length>0 && emailId.length>0 && mobile.length>0 && password.length>0 && areaId.length>0)
     }
@@ -91,9 +98,7 @@ export class SignupPage implements OnInit{
 
   }
 
-  otp(){
-        
-
+   otp(){
         if(this.validateInput()){
           let loading = this.loadingCtrl.create({
             content: 'Please wait...'
@@ -107,9 +112,11 @@ export class SignupPage implements OnInit{
           });
           this.storage.set('password', this.postData.password);
           alert("Successfully Register!");
-          this.navCtrl.push(SigninPage);
+          //this.navCtrl.push(SigninPage);
+          this.loginAction();
           loading.dismiss();  
-            }else{
+            }else if(res=="0"){
+              alert(this.postData.mobile+" mobile no already exists.");
               loading.dismiss();               
             }
           },
@@ -118,6 +125,39 @@ export class SignupPage implements OnInit{
           }
           )      
         }
+  }
+
+  loginAction(){    
+    
+    if(this.validateInput()){
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });  
+    loading.present();  
+      this.authService.login(this.loginData).subscribe((res:any)=>{
+        if(res!="0"){
+          loading.dismiss();  
+          sessionStorage.setItem("userId",res);
+          sessionStorage.setItem("username",this.loginData.username);
+          sessionStorage.setItem("password",this.loginData.password);
+          sessionStorage.setItem("role",this.loginData.role);       
+          console.log('Customer Id:'+res);
+          this.navCtrl.push(HellopagePage);         
+        }else{
+          loading.dismiss();  
+          this.alertMess('Incorrect username and password.');
+          console.log('Incorrect username and password.');
+        }
+      },
+      (error:any)=>{
+        console.log('Network connection error.',error);
+      }
+      )      
+    }else{
+      this.alertMess('Please enter username and password!');
+      console.log('please enter username and password!');
+    }
+     
   }
 
   async alertMess(mess:string){

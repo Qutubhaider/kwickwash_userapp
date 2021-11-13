@@ -56,6 +56,7 @@ export class ProfilePage implements OnInit{
   }
 
   UpdateProfile(){
+    console.log('In');
     if(this.validateInput()){
       let loading = this.loadingCtrl.create({
         content: 'Please wait...'
