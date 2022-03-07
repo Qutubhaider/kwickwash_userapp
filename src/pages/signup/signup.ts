@@ -190,8 +190,5 @@ export class SignupPage implements OnInit{
       spinner: 'lines'  
     });
     loading.present();
-  }
-
-
- 
+  } 
 }

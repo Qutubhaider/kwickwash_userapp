@@ -20,6 +20,10 @@ export class ProfilePage implements OnInit{
   }
 
   validateInput(){
+    console.log(this.postData.name.trim());
+    console.log(this.postData.emailId.trim());
+    console.log(this.postData.mobile.trim());
+    console.log(this.postData.dob.trim());
     let name=this.postData.name.trim();
     let emailId=this.postData.emailId.trim();
     let mobile=this.postData.mobile.trim();
@@ -31,6 +35,7 @@ export class ProfilePage implements OnInit{
   ngOnInit() {   
     this.getProfile();
    }
+   
   constructor(
     public navCtrl: NavController,
     private authService:ServiceProvider,
