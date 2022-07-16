@@ -4,12 +4,12 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding *ngFor="let postData of dataUser">
+<ion-content padding *ngFor="let userdt of dataUser">
     <form #form="ngForm" class="center">
     <ion-list no-lines class="form">
         <ion-item>
             <ion-icon name="md-person" item-start></ion-icon>
-            <ion-label floating>Enter Full Name</ion-label>
+            <ion-label floating style="color:black">{{userdt.name}}</ion-label>
             <!--<ion-input 
             type="text"
             value="{{postData.name}}"
@@ -18,52 +18,40 @@
             name="name"
             #name="ngModel"></ion-input>-->
             <ion-input 
-                name="name"  
-                [ngModelOptions]="{ standalone: true }"  
-                [(ngModel)]="postData.name" 
-                type="text" 
-                #name="ngModel"
-                value="{{postData.name}}">
+                name="name" 
+                [(ngModel)]="name" 
+                type="text" [readonly]="isReadonly">
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-icon name="md-mail" item-start></ion-icon>
-            <ion-label floating>Email Address</ion-label>
+            <ion-label floating>{{userdt.emailId ===''? "Email Address": userdt.emailId}}</ion-label>
             <ion-input 
-                name="emailId"  
-                [ngModelOptions]="{ standalone: true }" 
+                name="emailId" 
                 [(ngModel)]="postData.emailId" 
-                type="email" 
-                                #emailId="ngModel"
-                value="{{postData.emailId}}">
+                type="email">
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-icon name="md-phone-portrait" item-start></ion-icon>
-            <ion-label floating>Phone Number</ion-label>
+            <ion-label floating style="color:black">{{userdt.mobile}}</ion-label>
             <ion-input 
-                name="mobile" 
-                [ngModelOptions]="{ standalone: true }"  
+                name="mobile"  
                 [(ngModel)]="postData.mobile" 
-                type="text" 
-                #mobile="ngModel"
-                value="{{postData.mobile}}">
+                type="text" [readonly]="isReadonly">
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-calendar" md="md-calendar"  item-start></ion-icon>
-            <ion-label floating>Date of Birth</ion-label>
+            <ion-label floating>{{userdt.dob ===''? "Date of Birth": userdt.dob}}</ion-label>
             <ion-input 
-                name="dob" 
-                [ngModelOptions]="{ standalone: true }"  
+                name="dob"  
                 [(ngModel)]="postData.dob" 
-                type="date" 
-                #dob="ngModel"
-                value="{{postData.dob}}">
+                >
             </ion-input>
         </ion-item>   
     </ion-list>
     <button ion-button full (click)="UpdateProfile()">Update Now</button>
 </form>
-    <p text-center (click)="ChangePassword()" >Change Password</p>
+    <p text-center (click)="ChangePassword()" style="display: none;" >Change Password</p>
 </ion-content>

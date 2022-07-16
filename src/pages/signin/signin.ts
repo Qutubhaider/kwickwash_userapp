@@ -3,8 +3,9 @@ import { NavController,AlertController, LoadingController } from 'ionic-angular'
 import { PasswordPage } from '../password/password';
 import { SignupPage } from '../signup/signup';
 import { ServiceProvider } from '../../providers/service/service';
-import { HellopagePage } from '../hellopage/hellopage';
 import { Storage } from '@ionic/storage';
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-signin',
@@ -80,7 +81,8 @@ export class SigninPage implements OnInit{
           sessionStorage.setItem("role",this.postData.role);         
           //this.storageService.store(AuthConstants.AUTH,res.username);     
           console.log('Customer Id:'+res);
-          this.navCtrl.push(HellopagePage);         
+          //this.navCtrl.push(HomePage);  
+          this.navCtrl.setRoot(TabsPage)       
         }else{
           loading.dismiss();  
           this.alertMess('Incorrect username and password.');

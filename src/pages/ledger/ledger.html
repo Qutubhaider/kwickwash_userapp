@@ -1,0 +1,23 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Ledger</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <div class="row header">
+    <div class="col">Order No</div>
+    <div class="col">Date</div>
+    <div class="col">Dr Amt</div>
+    <div class="col">Cr Amt</div>
+    <div class="col">Balance</div>
+  </div>
+ <div class="row" *ngFor="let data of ledgerList">
+   <div class="col">{{data.orderNo}}</div>
+    <div class="col">{{data.entryDate}}</div>
+    <div class="col">{{data.debiteAmount}}</div>
+    <div class="col">{{data.creditAmount}}</div>
+    <div class="col">{{data.balance}}</div>
+  </div>
+</ion-content>

@@ -27,7 +27,8 @@
     </ion-list>
     <button ion-button block (click)="loginAction()">Sign in</button>
     </form>     
-    <button ion-button outline block ><ion-icon ios="logo-google" md="logo-google" (click)="googleSignIn()"></ion-icon>&nbsp;&nbsp; Sign in with Google</button>
+    <button ion-button block (click)="loginWithOTP()">Login With OTP</button>
+    <button ion-button outline block style="display: none;" ><ion-icon ios="logo-google" md="logo-google" (click)="googleSignIn()"></ion-icon>&nbsp;&nbsp; Sign in with Google</button>
 
     <p text-center style="margin-top: 80px;">Don't have an account? <a (click)="signup()">Sign Up</a></p>
 </ion-content>

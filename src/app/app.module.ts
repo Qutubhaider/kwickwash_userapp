@@ -37,6 +37,7 @@ import { HellopagePage } from '../pages/hellopage/hellopage';
 import { IonicStorageModule } from '@ionic/storage';
 import { InvoicePage } from '../pages/invoice/invoice';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
+import { LedgerPage } from '../pages/ledger/ledger';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { ChangepasswordPage } from '../pages/changepassword/changepassword';
     WelcomePage,
     HellopagePage,
     InvoicePage,
-    ChangepasswordPage
+    ChangepasswordPage,
+    LedgerPage
   ],
   imports: [
     BrowserModule,
@@ -111,7 +113,8 @@ import { ChangepasswordPage } from '../pages/changepassword/changepassword';
     WelcomePage,
     HellopagePage,
     InvoicePage,
-    ChangepasswordPage
+    ChangepasswordPage,
+    LedgerPage
   ],
   providers: [
     StatusBar,

@@ -7,14 +7,36 @@
 <ion-content class="bg-light">
     <div padding-left padding-right class="order-list" >
     <ion-list no-lines>
-        <ion-item *ngFor="let olist of orderList" (click)="GetOrderSummary(olist.orderId)">              
-            <h2>Order No: {{olist.orderId}}</h2>
-            <p>Order Status : {{olist.deliveryStatus}}</p>
-            <ion-note item-end>₹{{olist.ttlPayableAmount}}
-                <small>Order Date : {{olist.orderDate}}</small>
-                <small>Delivery Date : {{olist.deliveryDate}}</small>
+      <div *ngFor="let olist of orderList" (click)="GetOrderSummary(olist.orderId)">    
+        <ion-item *ngIf="olist.deliveryStatus ==''" style="background-color: #0876e0 ;">
+            <h2>Order No: {{olist.orderId}}</h2>                
+            <p style="color: wheat; font-weight: bold;">{{olist.deliveryStatus ===''? "Booked": olist.deliveryStatus}}</p>
+            <ion-note item-end><h2 style="color: wheat; font-weight: bold;">₹{{olist.ttlPayableAmount}}</h2>
+                <p style="color: wheat; font-weight: bold;">{{olist.status}}</p>
             </ion-note>
-        </ion-item>       
+        </ion-item> 
+        <ion-item *ngIf="olist.deliveryStatus =='Delivered'" style="background-color: lightgreen;">
+          <h2>Order No: {{olist.orderId}}</h2>                
+          <p style="color: darkgreen; font-weight: bold;">{{olist.deliveryStatus ===''? "Booked": olist.deliveryStatus}}</p>
+          <ion-note item-end><h2 style="color: darkgreen; font-weight: bold;">₹{{olist.ttlPayableAmount}}</h2>
+              <p style="color: darkgreen; font-weight: bold;">{{olist.status}}</p>
+          </ion-note>
+      </ion-item> 
+      <ion-item *ngIf="olist.deliveryStatus =='InProcess'" style="background-color: #dcb62d;">
+        <h2>Order No: {{olist.orderId}}</h2>                
+        <p style="color: black; font-weight: bold;">{{olist.deliveryStatus ===''? "Booked": olist.deliveryStatus}}</p>
+        <ion-note item-end><h2 style="color: black; font-weight: bold;">₹{{olist.ttlPayableAmount}}</h2>
+            <p style="color: black; font-weight: bold;">{{olist.status}}</p>
+        </ion-note>
+    </ion-item>    
+    <ion-item *ngIf="olist.deliveryStatus =='ReadyForDelivery'" style="background-color: violet;">
+      <h2>Order No: {{olist.orderId}}</h2>                
+      <p style="color: black; font-weight: bold;">{{olist.deliveryStatus ===''? "Booked": olist.deliveryStatus}}</p>
+      <ion-note item-end><h2 style="color: black; font-weight: bold;">₹{{olist.ttlPayableAmount}}</h2>
+          <p style="color: black; font-weight: bold;">{{olist.status}}</p>
+      </ion-note>
+    </ion-item>          
+    </div>     
     </ion-list>
     </div>  
 </ion-content>

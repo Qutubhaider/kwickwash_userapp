@@ -9,6 +9,7 @@
         <ion-row *ngFor="let userDt of dataUser">           
             <ion-col>
                 <p>{{userDt.name}}<span>View profile</span></p>
+                <p>Wallet :{{userDt.balance}}</p>
             </ion-col>
         </ion-row>
     </div>
@@ -20,6 +21,10 @@
         <ion-item (click)="myrequest()">
             <ion-icon name="md-list-box" item-start></ion-icon>
             My Orders Request
+        </ion-item>
+        <ion-item (click)="myLedger()">
+            <ion-icon name="md-list-box" item-start></ion-icon>
+            My Ledger
         </ion-item>
         <ion-item (click)="addaddress()">
             <ion-icon name="md-pin" item-start></ion-icon>

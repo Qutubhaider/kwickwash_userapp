@@ -14,6 +14,7 @@ import { RefundpolicyPage } from '../refundpolicy/refundpolicy';
 import { ServiceProvider } from '../../providers/service/service';
 import { OrderrequestPage } from '../orderrequest/orderrequest';
 import { Storage } from '@ionic/storage';
+import { LedgerPage } from '../ledger/ledger';
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html'
@@ -83,6 +84,10 @@ export class AccountPage implements OnInit{
     this.navCtrl.push(RefundpolicyPage);
   }
   
+  myLedger(){
+    this.navCtrl.push(LedgerPage);
+  }
+
   signout(){   
     //sessionStorage.setItem("userId",null);
     

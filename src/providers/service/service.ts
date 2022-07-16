@@ -50,6 +50,7 @@ export class ServiceProvider {
       map(this.extractData));
   }
 
+ 
   getService(){
     return this.get('myserviceApp/'+sessionStorage.getItem("shopUserId"));
   }
@@ -111,6 +112,9 @@ export class ServiceProvider {
     return this.get('profile/'+postData);
   }
 
-  
+  getLedger(postData:any){
+    console.log(postData);
+    return this.get('CustomerLedger/'+postData);
+  }
 
 }

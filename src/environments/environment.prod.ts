@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl:'http://api.kwickwash.in/api/'
+  apiUrl:'https://api.kwickwash.com/api/'
 };

@@ -20,11 +20,11 @@ export class HomePage implements OnInit {
   slides = [
     {     
       title: "",
-      imgurl:"assets/imgs/slider-1.jpg",
+      imgurl:"assets/imgs/slider-11.jpg",
     },
     {
       title: "",
-      imgurl:"assets/imgs/slider-2.jpg",
+      imgurl:"assets/imgs/slider-12.jpg",
     },
     {
       title: "",
@@ -86,7 +86,8 @@ export class HomePage implements OnInit {
     sessionStorage.setItem("srId",sid);  
     sessionStorage.setItem("srName",serviceName);
     console.log(sid); 
-    this.navCtrl.push(SelectclothesPage)
+    //this.navCtrl.push(SelectclothesPage)
+    this.navCtrl.push(OrderconfirmedPage);
   }
 
 
@@ -99,5 +100,4 @@ export class HomePage implements OnInit {
     console.log(orderId); 
     this.navCtrl.push(OrderslipPage)
   }
-
 }

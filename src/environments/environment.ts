@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://api.kwickwash.in/api/'
+  apiUrl:'https://api.kwickwash.com/api/'
 };
 
 /*
