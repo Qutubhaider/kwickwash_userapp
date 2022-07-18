@@ -6,6 +6,7 @@ import { ServiceProvider } from '../../providers/service/service';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+import { OtpPage } from '../otp/otp';
 
 @Component({
   selector: 'page-signin',
@@ -59,11 +60,15 @@ export class SigninPage implements OnInit{
     }
   
    validateInput(){
-      let username=this.postData.username.trim();
-      let password=this.postData.password.trim();      
-      //let role=this.postData.role.trim();
-      return(this.postData.password && this.postData.password && username.length>0 && password.length>0) 
+      let username=this.postData.username;
+      let password=this.postData.password;  
+      return(this.postData.username && this.postData.password && username.length>0 && password.length>0) 
   }
+
+  validateMobile(){
+    let username=this.postData.username; 
+    return(this.postData.username && username.length>0) 
+}
 
   loginAction(){    
     
@@ -94,8 +99,8 @@ export class SigninPage implements OnInit{
       }
       )      
     }else{
-      this.alertMess('Please enter username and password!');
-      console.log('please enter username and password!');
+      this.alertMess('Please enter mobile and password!');
+      console.log('please enter mobile and password!');
     }
      
   }
@@ -149,6 +154,16 @@ export class SigninPage implements OnInit{
     this.googleSignIn.apply({})
       .then(result => this.userData = result)
       .catch(err => this.userData = `Error ${JSON.stringify(err)}`);
+  }
+
+  loginWithOTP()
+  {
+    if(this.validateMobile()){
+    this.navCtrl.push(OtpPage);  
+    }
+    else{
+      this.alertMess('Please enter mobile !');
+    }
   }
 
 }

@@ -4,28 +4,21 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding *ngFor="let userdt of dataUser">
-    <form #form="ngForm" class="center">
+<ion-content padding>
+    <form name="editProfile" #editform="ngForm" (ngSubmit)="UpdateProfile()" class="center">
     <ion-list no-lines class="form">
         <ion-item>
             <ion-icon name="md-person" item-start></ion-icon>
-            <ion-label floating style="color:black">{{userdt.name}}</ion-label>
-            <!--<ion-input 
-            type="text"
-            value="{{postData.name}}"
-            [(ngModel)]="postData.name" 
-            [ngModelOptions]="{ standalone: true }"
-            name="name"
-            #name="ngModel"></ion-input>-->
+            <ion-label floating>Name </ion-label>           
             <ion-input 
                 name="name" 
-                [(ngModel)]="name" 
-                type="text" [readonly]="isReadonly">
+                [(ngModel)]="postData.name" 
+                readonly>
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-icon name="md-mail" item-start></ion-icon>
-            <ion-label floating>{{userdt.emailId ===''? "Email Address": userdt.emailId}}</ion-label>
+            <ion-label floating>Email Address </ion-label>
             <ion-input 
                 name="emailId" 
                 [(ngModel)]="postData.emailId" 
@@ -34,20 +27,19 @@
         </ion-item>
         <ion-item>
             <ion-icon name="md-phone-portrait" item-start></ion-icon>
-            <ion-label floating style="color:black">{{userdt.mobile}}</ion-label>
+            <ion-label floating style="color:black">Mobile</ion-label>
             <ion-input 
                 name="mobile"  
                 [(ngModel)]="postData.mobile" 
-                type="text" [readonly]="isReadonly">
+                readonly>
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-calendar" md="md-calendar"  item-start></ion-icon>
-            <ion-label floating>{{userdt.dob ===''? "Date of Birth": userdt.dob}}</ion-label>
+            <ion-label floating>Date of Birth</ion-label>
             <ion-input 
                 name="dob"  
-                [(ngModel)]="postData.dob" 
-                >
+                [(ngModel)]="postData.dob">
             </ion-input>
         </ion-item>   
     </ion-list>

@@ -5,57 +5,41 @@
 </ion-header>
 
 <ion-content class="bg-light">
-    <!--<p padding-left padding-right class="heading">Click on icons to add Address</p>-->
     <ion-toolbar no-border-top class="select-tab">
         <ion-segment [(ngModel)]="address">
             <ion-segment-button value="home">
                 <span class="home-img"></span> Home
             </ion-segment-button>
-           <!-- <ion-segment-button value="office">
-                <span class="office-img"></span> Office
-            </ion-segment-button>-->
-           <!-- <ion-segment-button value="other">
-                <span class="other-img"></span> Other
-            </ion-segment-button>-->
         </ion-segment>
     </ion-toolbar>
-    <form #form="ngForm" class="center">
-    <div class="address-list" *ngFor="let postData of dataUser">
+    <form name="editAddress" #editform="ngForm" (ngSubmit)="SaveAddress()" class="center">
+    <div class="address-list">
         <ion-list no-lines class="home-address">
             <div class="input-address" padding>
                 <p class="heading" no-margin padding-bottom>Home Address</p>
+
+                
                 <ion-list no-line>
                     <ion-item>
-                        <ion-textarea  
-                            [ngModelOptions]="{ standalone: true }"    
+                        <ion-textarea     
+                            name="address"
                             [(ngModel)]="postData.address"
-                            #address="ngModel" 
-                            value="{{postData.address}}" 
                             placeholder="Building/Society Name & Number"> </ion-textarea>
                     </ion-item>
-                   <!-- <ion-item>
-                        <ion-input type="text" placeholder="Street Address, Landmark, etc."></ion-input>
-                    </ion-item>-->
                     <ion-row no-padding>
                         <ion-col no-padding>
                             <ion-item>
-                                <ion-input 
-                                    type="text" 
-                                    [ngModelOptions]="{ standalone: true }"  
+                                <ion-input
+                                    name="pincode" 
                                     [(ngModel)]="postData.pincode"
-                                    #pincode="ngModel" 
-                                    value="{{postData.pincode}}" 
                                     placeholder="PinCode"></ion-input>
                             </ion-item>
                         </ion-col>
                         <ion-col no-padding>
                             <ion-item>
                                 <ion-input 
-                                    type="text" 
-                                    [ngModelOptions]="{ standalone: true }"  
+                                    name="city"
                                     [(ngModel)]="postData.city" 
-                                    #city="ngModel" 
-                                    value="{{postData.city}}" 
                                     placeholder="City"></ion-input>
                             </ion-item>
                         </ion-col>

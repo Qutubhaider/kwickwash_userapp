@@ -11,6 +11,7 @@ export class AddaddressPage implements OnInit{
   public api:ServiceProvider
   
   public postData={
+    profileId:sessionStorage.getItem("userId"),
     address:'',
     pincode:'',
     city:''
@@ -20,7 +21,11 @@ export class AddaddressPage implements OnInit{
     this.getProfile();
    }
 
-  constructor(public navCtrl: NavController, private authService:ServiceProvider, public loadingCtrl:LoadingController,public alertCtrl: AlertController) 
+  constructor(
+    public navCtrl: NavController, 
+    private authService:ServiceProvider, 
+    public loadingCtrl:LoadingController,
+    public alertCtrl: AlertController) 
   {
 
   }
@@ -37,6 +42,9 @@ export class AddaddressPage implements OnInit{
     this.authService.getProfile(sessionStorage.getItem("userId"))
     .subscribe(res=>{
       this.dataUser=res;
+      this.postData.address=this.dataUser[0].address;
+      this.postData.city=this.dataUser[0].city;
+      this.postData.pincode=this.dataUser[0].pincode;
       loading.dismiss();  
     }); 
   }

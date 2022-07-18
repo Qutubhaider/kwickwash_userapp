@@ -9,6 +9,8 @@ import { ChangepasswordPage } from '../changepassword/changepassword';
 })
 export class ProfilePage implements OnInit{
   dataUser:any;
+  userdetails:any;
+  userdt:any;
   public api:ServiceProvider
 
   public postData={
@@ -19,22 +21,25 @@ export class ProfilePage implements OnInit{
     dob:''
   }
 
+
+
+
   validateInput(){
-    console.log(this.postData.name.trim());
-    console.log(this.postData.emailId.trim());
-    console.log(this.postData.mobile.trim());
-    console.log(this.postData.dob.trim());
-    let name=this.postData.name.trim();
-    let emailId=this.postData.emailId.trim();
-    let mobile=this.postData.mobile.trim();
-    let dob=this.postData.dob.trim();
+    console.log(this.postData.name);
+    console.log(this.postData.emailId);
+    console.log(this.postData.mobile);
+    console.log(this.postData.dob);
+    let name=this.postData.name;
+    let emailId=this.postData.emailId;
+    let mobile=this.postData.mobile;
+    let dob=this.postData.dob;
     return(this.postData.name && this.postData.emailId && this.postData.mobile && this.postData.dob &&
        name.length>0 && emailId.length>0 && mobile.length>0 && dob.length>0)
   }
 
   ngOnInit() {   
     this.getProfile();
-   }
+  }
    
   constructor(
     public navCtrl: NavController,
@@ -56,6 +61,11 @@ export class ProfilePage implements OnInit{
     this.authService.getProfile(sessionStorage.getItem("userId"))
     .subscribe(res=>{
       this.dataUser=res;
+      this.postData.name=this.dataUser[0].name;
+      this.postData.emailId=this.dataUser[0].emailId;
+      this.postData.mobile=this.dataUser[0].mobile;
+      this.postData.dob=this.dataUser[0].dob;   
+
       loading.dismiss();  
     }); 
   }
