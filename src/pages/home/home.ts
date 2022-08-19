@@ -3,7 +3,6 @@ import { AlertController, LoadingController, NavController } from 'ionic-angular
 import { ServiceProvider } from '../../providers/service/service';
 import { OrderconfirmedPage } from '../orderconfirmed/orderconfirmed';
 import { OrderslipPage } from '../orderslip/orderslip';
-import { SelectclothesPage } from '../selectclothes/selectclothes';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

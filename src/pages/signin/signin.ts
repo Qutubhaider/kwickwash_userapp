@@ -4,10 +4,9 @@ import { PasswordPage } from '../password/password';
 import { SignupPage } from '../signup/signup';
 import { ServiceProvider } from '../../providers/service/service';
 import { Storage } from '@ionic/storage';
-import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 import { OtpPage } from '../otp/otp';
-
+//import { OneSignal } from '@ionic-native/onesignal/ngx';
 @Component({
   selector: 'page-signin',
   templateUrl: 'signin.html'
@@ -19,10 +18,9 @@ export class SigninPage implements OnInit{
     role:'custom'
   }
   userData: any = {};
-  ngOnInit() {   
-   
-  
-    console.log(sessionStorage.getItem("userId"));
+
+  ngOnInit() {
+    console.log(sessionStorage.getItem("userId"));    
     this.postData.username=sessionStorage.getItem("username");
     this.postData.password=sessionStorage.getItem("password");
     this.postData.role="custom";
@@ -35,15 +33,7 @@ export class SigninPage implements OnInit{
     this.storage.get('password').then((val) => {
       console.log('password :', val);
       this.postData.password=val;
-      //let password=this.postData.password.trim();
-      //if(this.password.length>0)
-      //{
-      // this.googleSignIn();
-      //}
-    });
-
-     
-   
+    });    
   }
 
   public api:ServiceProvider
@@ -52,13 +42,11 @@ export class SigninPage implements OnInit{
     private authService:ServiceProvider,
     public loadingCtrl:LoadingController,
     public alertCtrl: AlertController,
-    private storage: Storage
-
+    private storage: Storage,
+    //private oneSignal: OneSignal
     ) {
-     
-     
     }
-  
+
    validateInput(){
       let username=this.postData.username;
       let password=this.postData.password;  
@@ -70,8 +58,7 @@ export class SigninPage implements OnInit{
     return(this.postData.username && username.length>0) 
 }
 
-  loginAction(){    
-    
+  loginAction(){   
     if(this.validateInput()){
       let loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -83,10 +70,8 @@ export class SigninPage implements OnInit{
           sessionStorage.setItem("userId",res);
           sessionStorage.setItem("username",this.postData.username);
           sessionStorage.setItem("password",this.postData.password);
-          sessionStorage.setItem("role",this.postData.role);         
-          //this.storageService.store(AuthConstants.AUTH,res.username);     
+          sessionStorage.setItem("role",this.postData.role);   
           console.log('Customer Id:'+res);
-          //this.navCtrl.push(HomePage);  
           this.navCtrl.setRoot(TabsPage)       
         }else{
           loading.dismiss();  
@@ -159,7 +144,26 @@ export class SigninPage implements OnInit{
   loginWithOTP()
   {
     if(this.validateMobile()){
-    this.navCtrl.push(OtpPage);  
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });  
+    loading.present();  
+      this.authService.loginWithOTP(this.postData).subscribe((res:any)=>{
+        if(res!="0"){
+          loading.dismiss();  
+          sessionStorage.setItem("userId",res);  
+          console.log('Customer Id:'+res);
+          this.navCtrl.push(OtpPage);   
+        }else{
+          loading.dismiss();  
+          this.alertMess('Incorrect mobile.');
+        }
+      },
+      (error:any)=>{
+        console.log('Network connection error.',error);
+      }
+      )  
+      
     }
     else{
       this.alertMess('Please enter mobile !');

@@ -39,7 +39,6 @@ import { InvoicePage } from '../pages/invoice/invoice';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { LedgerPage } from '../pages/ledger/ledger';
 
-
 @NgModule({
   declarations: [
     MyApp,

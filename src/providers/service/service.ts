@@ -117,4 +117,12 @@ export class ServiceProvider {
     return this.get('CustomerLedger/'+postData);
   }
 
+  loginWithOTP(postData:any){  
+    return this.post('otplogin',postData);
+  }
+
+  validateOTPLogin(postData:any){
+    return this.post('loginwithotp',postData);
+  }
+
 }
