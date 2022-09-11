@@ -17,7 +17,7 @@ export class WelcomePage {
 
   ionViewDidLoad() {
     setTimeout(() => this.splash = false, 3000);
-    if(sessionStorage.getItem("userId")!=null || sessionStorage.getItem("userId")!=""){      
+    if(sessionStorage.getItem("userId")!=null && sessionStorage.getItem("userId")!=""){      
       this.navCtrl.setRoot(TabsPage)      
     }
   }

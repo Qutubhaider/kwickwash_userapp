@@ -81,6 +81,7 @@ export class ProfilePage implements OnInit{
     if(res!="0"){
      
       alert("Successfully Update!");
+      this.getProfile();
       loading.dismiss();  
         }else{
           loading.dismiss();               
